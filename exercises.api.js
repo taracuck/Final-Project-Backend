@@ -11,20 +11,20 @@ exercises.get("/exercises", (req, res) => {
   pool.query(query).then((response) => {
     res.json(response.rows);
   });
+});
 
-  exercises.post("/exercises", (req, res) => {
-    let query = `INSERT INTO exercise (name,body_part_id,difficulty,description) VALUES ($1::varchar,$2::smallint,$3::smallint,$4::text)`;
-    pool
-      .query(query, [
-        req.body.name,
-        req.body.bodyPart,
-        req.body.difficulty,
-        req.body.description,
-      ])
-      .then((response) => {
-        res.json(req.body);
-      });
-  });
+exercises.post("/exercises", (req, res) => {
+  let query = `INSERT INTO exercise (name,body_part_id,difficulty,description) VALUES ($1::varchar,$2::smallint,$3::smallint,$4::text)`;
+  pool
+    .query(query, [
+      req.body.name,
+      req.body.bodyPart,
+      req.body.difficulty,
+      req.body.description,
+    ])
+    .then((response) => {
+      res.json(req.body);
+    });
 });
 
 module.exports = exercises;
