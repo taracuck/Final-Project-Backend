@@ -30,7 +30,4 @@ const DEFAULT_PORT = 3000;
 const port = process.env.PORT || DEFAULT_PORT;
 
 // run the server
-app.listen(port, () =>
-  console.log(`Listening on
-port: ${port}.`)
-);
+app.listen(port, () => console.log(`Listening on port: ${port}.`));
